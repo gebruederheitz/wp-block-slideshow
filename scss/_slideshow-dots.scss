@@ -1,0 +1,32 @@
+@use "mixins";
+
+.glide__bullets {
+    z-index: $slider-dots-z-index;
+    display: flex;
+    justify-content: center;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+
+    .glide__bullet {
+        @include mixins.unstyled-button(transparent);
+
+        background-color: transparent;
+        border-radius: 0;
+        border: 1px solid #fff;
+        height: 12px;
+        transition: background-color 200ms ease, transform 200ms ease;
+        width: 12px;
+
+        &:not(:last-child) {
+            margin-right: 1rem;
+        }
+
+        &:hover {
+            transform: scale(1.5);
+        }
+
+        &.tns-nav-active {
+            background-color: #aaa;
+        }
+    }
+}

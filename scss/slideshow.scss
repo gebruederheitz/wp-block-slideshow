@@ -1,0 +1,86 @@
+// BLOCK: SLIDESHOW
+// --------------------------------------------------------------------
+@use "mixins";
+
+/* General Slideshow style variables */
+$slider-margin: 90px 0 !default;
+$slider-medium-breakpoint: 768px !default;
+
+/* Arrows style variables */
+$slider-arrows-z-index: 1 !default;
+$slider-arrows-padding: 1rem 2rem !default;
+$slider-arrows-opacity: 1 !default;
+
+$slider-arrows-caret-width: 12px !default;
+$slider-arrows-caret-height: 20px !default;
+
+$slider-arrows-caret-left: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%234a4d4a' viewBox='0 0 12 20'%3E%3Cpath d='M12 17.5L9.554 20 0 10 9.554 0 12 2.5 4.8 10z'/%3E%3C/svg%3E") !default;
+$slider-arrows-caret-right: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%234a4d4a' viewBox='0 0 12 20'%3E%3Cpath d='M0 2.5L2.446 0 12 10 2.446 20 0 17.5 7.2 10z'/%3E%3C/svg%3E") !default;
+
+$slider-arrows-before: false !default;
+$slider-arrows-use-inline-svg: true !default;
+
+$slider-arrows-before-bg: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0) 10%,
+    rgba(0, 0, 0, 0.1) 50%,
+    rgba(255, 255, 255, 0) 90%,
+    rgba(255, 255, 255, 0) 100%
+) !default;
+
+/* Dots style variables */
+$slider-dots-z-index: 1 !default;
+$slider-dots-bg: #fff !default;
+
+.ghwp-slideshow {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: $slider-margin;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+
+    .glide__track {
+        flex: 0 0 100%;
+
+        ul.glide__slides {
+            align-items: stretch;
+
+            li.glide__slide {
+                height: auto;
+            }
+        }
+    }
+
+    /* Left / right control buttons */
+    @import "slideshow-arrows";
+
+    /* Position indicator controls AKA "dots" */
+    @import "slideshow-dots";
+
+    figure {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        height: 100%;
+
+        img {
+            object-fit: cover;
+        }
+
+        &.alignfull {
+            position: static;
+
+            img {
+                object-fit: contain;
+            }
+        }
+
+        figcaption {
+            @include mixins.visuallyhidden;
+        }
+    }
+}

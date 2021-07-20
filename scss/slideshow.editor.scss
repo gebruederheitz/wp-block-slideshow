@@ -1,0 +1,97 @@
+/* Slideshow block */
+.ghwp-editor-carousel-wrap > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block {
+    display: none;
+}
+
+$i: 0 !default;
+@while $i < 20 {
+    .ghwp-editor-carousel-wrap[data-active-slide="#{$i}"] .block-editor-inner-blocks .wp-block:nth-child(#{$i + 1}) {
+        display: block !important;
+    }
+    $i: $i + 1;
+}
+
+.wp-block[data-type="ghwp/slideshow"] > .block-editor-block-list__block-edit > .editor-block-mover,
+.wp-block[data-type="ghwp/slideshow"] > .block-editor-block-list__insertion-point {
+    display: none !important;
+}
+
+
+[class^="icon-"] {
+    fill: currentColor;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.ghwp-editor-carousel-wrap {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: stretch;
+    justify-content: space-between;
+}
+
+.components-button.ghwp-slider-arrow {
+    display: flex;
+    height: auto;
+    flex: 1 0 3rem;
+    justify-content: center;
+    align-items: center;
+    background-color: #eee;
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+.ghwp-slide-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    justify-content: center;
+
+    li {
+        display: inline-block;
+        padding: 1px;
+
+        &.is-active button {
+            background-color: #058;
+            border-color: #058;
+        }
+    }
+}
+
+.ghwp-editor-slide-add-button {
+    margin-top: 8px;
+
+    &:hover {
+        background-color: #058;
+        border-color: #058;
+    }
+}
+
+/* Slideshow children */
+.ghwp-editor-carousel-wrap .block-editor-inner-blocks [data-block] > * {
+    min-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ghwp-editor-carousel-wrap .block-editor-inner-blocks .block-editor-rich-text__editable,
+.ghwp-editor-carousel-wrap .block-editor-inner-blocks .block-editor-rich-text__editable * {
+    border: 1px solid transparent;
+    color: inherit;
+    margin: inherit;
+    font-size: inherit;
+    background-color: inherit;
+    cursor: text;
+
+    &:focus-within {
+        border-color: #ccc;
+    }
+
+    &.is-selected {
+        border-left: 3px solid #ccc;
+    }
+
+}
