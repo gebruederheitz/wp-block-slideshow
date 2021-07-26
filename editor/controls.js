@@ -81,8 +81,7 @@ export const Controls = (props) => {
                                 useAutoplaySmall: useAutoplay,
                             });
                         }}
-                        compone
-                        nt={ToggleControl}
+                        component={ToggleControl}
                         checked={useAutoplay}
                     />
                     <PanelRow>
