@@ -12,4 +12,8 @@ function buildScss() {
         .pipe(gulp.dest('./dist'));
 }
 
+export function watch() {
+    gulp.watch('scss/**/*.scss', { ignoreInitial: false }, buildScss);
+}
+
 export default buildScss;
