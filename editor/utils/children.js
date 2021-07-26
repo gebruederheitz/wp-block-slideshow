@@ -35,27 +35,25 @@ export const DEFAULT_ALLOWED_CHILDREN = [
         prettyName: 'Paragraph',
     },
     {
-        type: 'ghwp/pricing-card',
-        nameAttribute: 'title',
-        defaultAttributes: {
-            className: 'ghwp-slideshow__slide',
-        },
-        prettyName: 'Pricing Card',
-    },
-    {
         type: 'ghwp/post-teaser',
         nameAttribute: 'postTitle',
         defaultAttributes: {
             className: 'ghwp-slideshow__slide',
             type: 'boxed',
         },
-        prettyName: 'Content Widget',
+        prettyName: 'Post teaser',
     },
 ];
 
 class ChildManager {
     constructor() {
         this.allowedChildren = DEFAULT_ALLOWED_CHILDREN;
+
+        this.getSlideDefaultAttributes =
+            this.getSlideDefaultAttributes.bind(this);
+        this.getSlideDisplayName = this.getSlideDisplayName.bind(this);
+        this.getAllowedChildrenForSelect =
+            this.getAllowedChildrenForSelect.bind(this);
     }
 
     setAllowedChildren(allowedChildren) {

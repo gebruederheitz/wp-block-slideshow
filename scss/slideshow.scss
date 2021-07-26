@@ -3,8 +3,11 @@
 @use "mixins";
 
 /* General Slideshow style variables */
-$slider-margin: 90px 0 !default;
+$slider-margin-y: 90px !default;
+$slider-margin-x: 0 !default;
 $slider-medium-breakpoint: 768px !default;
+
+$slider-secondary-top-margin: 10px !default;
 
 /* Arrows style variables */
 $slider-arrows-z-index: 1 !default;
@@ -38,19 +41,43 @@ $slider-dots-bg: #fff !default;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin: $slider-margin;
+    margin: $slider-margin-y $slider-margin-x;
     overflow: hidden;
     position: relative;
     width: 100%;
 
-    .glide__track {
+    .glide__track,
+    .splide__track {
         flex: 0 0 100%;
+    }
 
-        ul.glide__slides {
-            align-items: stretch;
+    .glide__track ul.glide__slides,
+    .splide__track ul.splide__list {
+        align-items: stretch;
+    }
 
-            li.glide__slide {
-                height: auto;
+    .glide__track ul.glide__slides li.glide__slide,
+    .splide__track ul.splide__list li.splide__slide {
+        height: auto;
+    }
+
+    &--secondary {
+        margin-top: -1 * ($slider-margin-y - $slider-secondary-top-margin);
+
+        .splide__track ul.splide__list li.splide__slide:not(.is-active) {
+            transition: background-color 200ms ease;
+            position: relative;
+            cursor: pointer;
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(0, 0, 0, 0.5);
+                border: 3px solid #333;
             }
         }
     }

@@ -4,79 +4,36 @@ import Glide, {
     Controls,
     Swipe,
 } from '@glidejs/glide/dist/glide.modular.esm';
-import _debounce from 'lodash-es/debounce';
+import { $, $$, createDomElement } from '@gebruederheitz/wp-frontend-utils';
 
-import {
-    $,
-    $$,
-    createDomElement,
-    Debuggable,
-} from '@gebruederheitz/wp-frontend-utils';
-import { OPTION_NAMES, parseDataAttribute } from '../ghwp-slideshows';
-import { defaults as DEFAULT_SLIDER_OPTIONS } from '../default-options';
+import { Slideshow } from '../abstract/slideshow';
 import { nextIcon, prevIcon } from '../icons';
 import { getGlideCustomControls } from './glide-custom-controls';
-import { getOptions } from './get-options';
+import { GlideOptionMapper } from './glide-option-mapper';
 
-export class SlideshowFactory {
-    /**
-     * @param {string} selector
-     * @param {boolean} debugEnabled
-     * @param {ResizeListener} resizeListener
-     */
-    constructor({
-        selector = '.ghwp-slideshow',
-        debugEnabled = false,
-        resizeListener = null,
-    } = {}) {
-        this.slideshows = [];
-        const sliders = $$()(selector);
-        for (let slider of sliders) {
-            if (slider.childElementCount) {
-                this.slideshows.push(
-                    new Slideshow(slider, debugEnabled, resizeListener)
-                );
-            }
-        }
-        // window.__debug = this;
-    }
-}
-
-export class Slideshow extends Debuggable {
+export class GlideSlideshow extends Slideshow {
     constructor(sliderRoot, debugEnabled = false, resizeListener) {
-        super('slideshow');
+        super(sliderRoot, debugEnabled, resizeListener, 'GlideSlideshow');
+    }
 
-        this.onStageAfterBuild = this.onStageAfterBuild.bind(this);
-        this.options = {
-            debug: debugEnabled,
-        };
+    initLibraryInstance() {
+        return new Glide(this.sliderRoot, this.sliderOptions);
+    }
 
-        this.onResize = _debounce(this.onResize.bind(this), 500);
-
-        this.sliderRoot = sliderRoot;
-        const options = getOptions(this.sliderRoot);
-        this.applyDomTransformations();
-        this.glide = new Glide(this.sliderRoot, options);
-
-        this.debug.log('Setup complete', this.glide);
-        if (sliderRoot.parentElement.matches('.ghwp-stage')) {
-            this.debug.log('Stage slider identified');
-            this.glide.on('build.after', this.onStageAfterBuild);
-        }
-
-        this.mount();
-
-        if (resizeListener) {
-            resizeListener.subscribe('resize', this.onResize);
-        }
+    getOptionMapper() {
+        return GlideOptionMapper;
     }
 
     onResize() {
-        this.glide.update();
+        this.libraryInstance.update();
+    }
+
+    onStageSlider() {
+        this.libraryInstance.on('build.after', this.onStageAfterBuild);
     }
 
     mount() {
-        this.glide.mount({
+        this.libraryInstance.mount({
             Controls: this.controls,
             Autoplay,
             Breakpoints,
@@ -96,7 +53,7 @@ export class Slideshow extends Debuggable {
         const { list } = this.createTrackList();
         this.wrapSlides(slides, list);
 
-        if (this.wantsWrapper()) {
+        if (this.sliderOptions.withWrapper) {
             const outerWrapper = this.createWrapper();
             this.controlsRoot = createDomElement({
                 classNames: ['ghwp-slideshow-controls'],
@@ -105,7 +62,7 @@ export class Slideshow extends Debuggable {
             this.controls = getGlideCustomControls(outerWrapper);
         }
 
-        if (this.hasArrows()) {
+        if (this.sliderOptions.arrows) {
             this.createControls();
         }
         if (this.hasDots()) {
@@ -187,29 +144,20 @@ export class Slideshow extends Debuggable {
 
     createWrapper() {
         const wrapper = createDomElement({
-            classNames: this.wantsWrapper() ? [this.wantsWrapper()] : [],
+            classNames: this.sliderOptions.withWrapper
+                ? [this.sliderOptions.withWrapper]
+                : [],
         });
         this.sliderRoot.parentElement.insertBefore(wrapper, this.sliderRoot);
         wrapper.appendChild(this.sliderRoot);
         return wrapper;
     }
 
-    hasArrows() {
-        const res = parseDataAttribute(
-            this.sliderRoot,
-            OPTION_NAMES.arrows,
-            'boolean',
-            true
-        );
-        return res;
-    }
-
     hasDots() {
-        return parseDataAttribute(
-            this.sliderRoot,
-            OPTION_NAMES.dots.small,
-            'boolean',
-            DEFAULT_SLIDER_OPTIONS.dots.small
+        return (
+            this.sliderOptions.dots ||
+            this.sliderOptions.dotsMedium ||
+            this.sliderOptions.dotsSmall
         );
     }
 
@@ -218,15 +166,6 @@ export class Slideshow extends Debuggable {
         const placeholder = $()('.ghwp-slideshow--skeleton');
         this.debug.log({ placeholder });
         placeholder && placeholder.classList.add('hidden');
-    }
-
-    wantsWrapper() {
-        return parseDataAttribute(
-            this.sliderRoot,
-            OPTION_NAMES.withWrapper,
-            'string',
-            false
-        );
     }
 
     wrapSlides(slides, slideListElement) {

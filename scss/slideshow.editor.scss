@@ -1,3 +1,30 @@
+/* External component(s) */
+.ghwp-editor-modal__content {
+    z-index: 32 !important;
+
+    > h2,
+    .components-panel__body.is-opened h2.components-panel__body-title {
+        margin-bottom: 2rem;
+    }
+
+    .components-panel {
+        margin-top: 3.5rem;
+    }
+
+    .components-panel__row:first-of-type {
+        margin-top: 2rem;
+    }
+
+    .components-panel__body > .components-panel__body-title {
+        padding: 1rem;
+        font-size: 1.4em;
+
+        button {
+            font-size: 1em;
+        }
+    }
+}
+
 /* Slideshow block */
 .ghwp-editor-carousel-wrap > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block {
     display: none;
@@ -95,3 +122,65 @@ $i: 0 !default;
     }
 
 }
+
+
+/* Modal controls */
+.ghwp-miwi {
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    min-height: 3rem;
+    padding: .5rem .5rem .5rem 1.5rem;
+    width: 100%;
+
+    &__input {
+        display: flex;
+        flex: 1 0 16rem;
+        justify-content: flex-end;
+        margin-left: 2rem;
+
+        * {
+            margin-bottom: 0;
+        }
+
+        .components-base-control.components-range-control {
+            width: 100%;
+            min-width: 12rem;
+        }
+
+        .components-button-group {
+            display: flex;
+            flex-flow: row wrap;
+
+            .components-button.is-primary {
+                flex: 1;
+            }
+        }
+    }
+
+    &__label {
+        flex: 10 1 300px;
+    }
+
+    &__icon {
+        display: flex;
+        flex: 0 0 2rem;
+        justify-content: center;
+        margin-right: 2rem;
+    }
+
+    &__suboption {
+        display: flex;
+        flex: 0 0 100%;
+        padding: 1rem 0 0 4rem;
+
+        .ghwp-miwi__icon svg {
+            width: 20px;
+        }
+    }
+}
+
+

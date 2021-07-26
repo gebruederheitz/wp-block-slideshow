@@ -3,12 +3,14 @@ import classnames from 'classnames';
 import {
     WithControlledChildren,
     WithFocusWithin,
+    WithModal,
 } from '@gebruederheitz/wp-editor-components';
 
 import { SlideshowHeader } from './components/SlideshowHeader';
 import { SlideshowEditorArrow } from './components/SlideshowEditorArrow';
 import { Controls } from './controls';
 import { slideshowChildren } from './utils/children';
+import { AdvancedOptionsModal } from './components/AdvancedOptionsModal';
 
 const { InnerBlocks } = blockEditor;
 const { createBlock } = blocks;
@@ -44,17 +46,18 @@ class Edit extends Component {
             insertChild(newSlide);
         };
 
+        const controlProps = {
+            onSlideAdd: onSlideAdd,
+            getSlideDisplayName: slideshowChildren.getSlideDisplayName,
+            ...this.props,
+        };
+
         return (
             <div className={classnames([className, 'ghwp-carousel'])}>
                 {type ? (
                     <>
-                        <Controls
-                            onSlideAdd={onSlideAdd}
-                            getSlideDisplayName={
-                                slideshowChildren.getSlideDisplayName
-                            }
-                            {...this.props}
-                        />
+                        <AdvancedOptionsModal {...controlProps} />
+                        <Controls {...controlProps} />
                         {(isSelected || focusWithin) && (
                             <SlideshowHeader
                                 onSlideAdd={onSlideAdd}
@@ -126,4 +129,4 @@ class Edit extends Component {
     }
 }
 
-export const edit = WithFocusWithin(WithControlledChildren(Edit));
+export const edit = WithModal(WithFocusWithin(WithControlledChildren(Edit)));

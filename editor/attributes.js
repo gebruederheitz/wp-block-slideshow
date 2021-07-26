@@ -1,6 +1,7 @@
-import { defaults as sliderDefaults } from '../frontend/default-options';
+import { options } from '../frontend';
 
 export const attributes = {
+    /* "Internal" attributes for editing only */
     currentlyEditedChildIndex: {
         type: 'number',
         default: 0,
@@ -12,104 +13,166 @@ export const attributes = {
     type: {
         type: 'string',
     },
+    /* "Display" attributes */
     slidesShown: {
         type: 'number',
-        default: sliderDefaults.slidesToShow.large,
+        default: options.slidesShown.default,
     },
     slidesShownMedium: {
         type: 'number',
-        default: sliderDefaults.slidesToShow.medium,
+        default: options.slidesShownMedium.default,
     },
     slidesShownSmall: {
         type: 'number',
-        default: sliderDefaults.slidesToShow.small,
+        default: options.slidesShownSmall.default,
     },
     slidesToScroll: {
         type: 'number',
-        default: sliderDefaults.slidesToScroll.large,
+        default: options.slidesToScroll.default,
     },
     slidesToScrollMedium: {
         type: 'number',
-        default: sliderDefaults.slidesToScroll.medium,
+        default: options.slidesToScrollMedium.default,
     },
     slidesToScrollSmall: {
         type: 'number',
-        default: sliderDefaults.slidesToScroll.small,
+        default: options.slidesToScrollSmall.default,
     },
     useAutoplay: {
         type: 'boolean',
-        default: sliderDefaults.autoplay.large,
+        default: options.autoplay.default,
     },
     useAutoplayMedium: {
         type: 'boolean',
-        default: sliderDefaults.autoplay.medium,
+        default: options.autoplayMedium.default,
     },
     useAutoplaySmall: {
         type: 'boolean',
-        default: sliderDefaults.autoplay.small,
+        default: options.autoplaySmall.default,
     },
     infiniteLoop: {
         type: 'boolean',
-        default: sliderDefaults.infinite.large,
+        default: options.infiniteLoop.default,
     },
     infiniteLoopMedium: {
         type: 'boolean',
-        default: sliderDefaults.infinite.medium,
+        default: options.infiniteLoopMedium.default,
     },
     infiniteLoopSmall: {
         type: 'boolean',
-        default: sliderDefaults.infinite.small,
+        default: options.infiniteLoopSmall.default,
     },
     centerMode: {
         type: 'boolean',
-        default: sliderDefaults.centerMode.large,
+        default: options.centerMode.default,
     },
     centerModeMedium: {
         type: 'boolean',
-        default: sliderDefaults.centerMode.medium,
+        default: options.centerModeMedium.default,
     },
     centerModeSmall: {
         type: 'boolean',
-        default: sliderDefaults.centerMode.small,
+        default: options.centerModeSmall.default,
     },
     edgePadding: {
         type: 'number',
-        default: sliderDefaults.edgePadding.large,
+        default: options.edgePadding.default,
     },
     edgePaddingMedium: {
         type: 'number',
-        default: sliderDefaults.edgePadding.medium,
+        default: options.edgePaddingMedium.default,
     },
     edgePaddingSmall: {
         type: 'number',
-        default: sliderDefaults.edgePadding.small,
+        default: options.edgePaddingSmall.default,
     },
     autoplaySpeed: {
         type: 'number',
-        default: sliderDefaults.autoplaySpeed,
+        default: options.autoplaySpeed.default,
     },
     breakpointMedium: {
         type: 'number',
-        default: sliderDefaults.breakpoint.medium,
+        default: options.breakpointMedium.default,
     },
     breakpointSmall: {
         type: 'number',
-        default: sliderDefaults.breakpoint.small,
+        default: options.breakpointSmall.default,
     },
     initialSlide: {
         type: 'number',
-        default: sliderDefaults.initialSlide,
+        default: options.initialSlide.default,
     },
     dots: {
         type: 'boolean',
-        default: sliderDefaults.dots.large,
+        default: options.dots.default,
     },
     dotsMedium: {
         type: 'boolean',
-        default: sliderDefaults.dots.medium,
+        default: options.dotsMedium.default,
     },
     dotsSmall: {
         type: 'boolean',
-        default: sliderDefaults.dots.small,
+        default: options.dotsSmall.default,
+    },
+    sliderLibrary: {
+        type: 'string',
+        default: options.lib.default,
+    },
+    linkingType: {
+        type: 'string',
+        default: options.linkingType.default,
+    },
+    sliderType: {
+        type: 'string',
+        default: options.sliderType.default,
+    },
+    secondaryGap: {
+        type: 'string',
+        default: options.secondaryGap.default,
+    },
+    secondaryGapMedium: {
+        type: 'string',
+        default: options.secondaryGapMedium.default,
+    },
+    secondaryGapSmall: {
+        type: 'string',
+        default: options.secondaryGapSmall.default,
+    },
+    secondaryHeight: {
+        type: 'string',
+        default: options.secondaryHeight.default,
+    },
+    secondaryHeightMedium: {
+        type: 'string',
+        default: options.secondaryHeightMedium.default,
+    },
+    secondaryHeightSmall: {
+        type: 'string',
+        default: options.secondaryHeightSmall.default,
+        attribute: 'ghwpSliderHeight',
+    },
+    secondarySlidesShown: {
+        type: 'string',
+        default: options.secondarySlidesShown.default,
+    },
+    secondarySlidesShownMedium: {
+        type: 'string',
+        default: options.secondarySlidesShownMedium.default,
+    },
+    secondarySlidesShownSmall: {
+        type: 'string',
+        default: options.secondarySlidesShownSmall.default,
+    },
+    secondaryWidth: {
+        type: 'string',
+        default: options.secondaryWidth.default,
+    },
+    secondaryWidthMedium: {
+        type: 'string',
+        default: options.secondaryWidthMedium.default,
+    },
+    secondaryWidthSmall: {
+        type: 'string',
+        default: options.secondaryWidthSmall.default,
     },
 };

@@ -1,91 +1,93 @@
 @use "mixins";
 
-.glide__arrows {
-    .glide__arrow {
-        @include mixins.unstyled-button(#fff);
+.glide__arrows .glide__arrow,
+.splide__arrows .splide__arrow {
+    @include mixins.unstyled-button(#fff);
 
-        bottom: 0;
-        display: block;
-        opacity: $slider-arrows-opacity;
-        padding: $slider-arrows-padding;
-        position: absolute;
-        top: 0;
+    bottom: 0;
+    display: block;
+    opacity: $slider-arrows-opacity;
+    padding: $slider-arrows-padding;
+    position: absolute;
+    top: 0;
+    z-index: $slider-arrows-z-index;
+
+    &:hover,
+    &:focus {
+        opacity: 1;
         z-index: $slider-arrows-z-index;
+    }
 
-        &:hover,
-        &:focus {
-            opacity: 1;
-            z-index: $slider-arrows-z-index;
-        }
-
-        @if $slider-arrows-before {
-            /* A background for better visibility on hover. ::before with opacity
-               because gradients can not be animated. */
-            &::before {
-                background: $slider-arrows-before-bg;
-                bottom: 0;
-                content: "";
-                left: 0;
-                opacity: 0;
-                position: absolute;
-                right: 0;
-                top: 0;
-                transition: opacity 200ms ease;
-            }
-
-            &:hover::before {
-                opacity: 1;
-            }
-        }
-
-        /* Contains the icon (left/right caret) */
-        &::after {
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
+    @if $slider-arrows-before {
+        /* A background for better visibility on hover. ::before with opacity
+           because gradients can not be animated. */
+        &::before {
+            background: $slider-arrows-before-bg;
+            bottom: 0;
             content: "";
-            display: block;
-            height: $slider-arrows-caret-height;
-            width: $slider-arrows-caret-width;
-        }
-
-        &--left {
             left: 0;
-
-            @media screen and (min-width: $slider-medium-breakpoint) {
-                left: -20vw;
-                transition: left 300ms linear;
-            }
-
-            @if ($slider-arrows-use-inline-svg == true) {
-                &::after {
-                    background-image: $slider-arrows-caret-left;
-                }
-            }
-        }
-
-        &--right {
+            opacity: 0;
+            position: absolute;
             right: 0;
-
-            @media screen and (min-width: $slider-medium-breakpoint) {
-                right: -20vw;
-                transition: right 300ms linear;
-            }
-
-            @if ($slider-arrows-use-inline-svg == true) {
-                &::after {
-                    background-image: $slider-arrows-caret-right;
-                }
-            }
+            top: 0;
+            transition: opacity 200ms ease;
         }
 
-        @if ($slider-arrows-use-inline-svg == true) {
-            .icon-prev,
-            .icon-next {
-                /* Hide the original SVG icons; they're replaced by the bg-image
-                   in the ::after element above */
-                display: none;
-            }
+        &:hover::before {
+            opacity: 1;
+        }
+    }
+
+    /* Contains the icon (left/right caret) */
+    &::after {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        content: "";
+        display: block;
+        height: $slider-arrows-caret-height;
+        width: $slider-arrows-caret-width;
+    }
+
+    @if ($slider-arrows-use-inline-svg == true) {
+        .icon-prev,
+        .icon-next,
+        svg {
+            // Hide the original SVG icons; they're replaced by the bg-image
+            // in the ::after element above
+            display: none;
+        }
+    }
+}
+
+.glide__arrows .glide__arrow.glide__arrow--left,
+.splide__arrows .splide__arrow.splide__arrow--prev {
+    left: 0;
+
+    @media screen and (min-width: $slider-medium-breakpoint) {
+        left: -20vw;
+        transition: left 300ms linear;
+    }
+
+    @if ($slider-arrows-use-inline-svg == true) {
+        &::after {
+            background-image: $slider-arrows-caret-left;
+        }
+    }
+}
+
+.glide__arrows .glide__arrow.glide__arrow--right,
+.splide__arrows .splide__arrow.splide__arrow--next {
+    right: 0;
+
+    @media screen and (min-width: $slider-medium-breakpoint) {
+        right: -20vw;
+        transition: right 300ms linear;
+    }
+
+    @if ($slider-arrows-use-inline-svg == true) {
+        &::after {
+            background-image: $slider-arrows-caret-right;
         }
     }
 }
@@ -93,15 +95,43 @@
 /* Slider arrows are initially hidden on wider screens, slide them in from the
    side when hovering over the parent. */
 &:hover {
-    .glide__arrows {
-        .glide__arrow--left:not(.glide__arrow--disabled) {
-            left: 0;
-            transition: left 300ms linear;
+    .glide__arrows .glide__arrow--left:not(.glide__arrow--disabled),
+    .splide__arrows .splide__arrow--prev:not(:disabled) {
+        left: 0;
+        transition: left 300ms linear;
+    }
+
+    .glide__arrows .glide__arrow--right:not(.glide__arrow--disabled),
+    .splide__arrows .splide__arrow--next:not(:disabled) {
+        right: 0;
+        transition: right 300ms linear;
+    }
+}
+
+&.ghwp-slideshow--secondary {
+    $button-width: 30px;
+
+    .splide__track {
+        flex-basis: calc(100% - (2 * #{$button-width} * 1.5));
+    }
+
+    .splide__arrows .splide__arrow {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        padding: 0;
+        width: 30px;
+
+        &::before {
+            display: none;
         }
 
-        .glide__arrow--right:not(.glide__arrow--disabled) {
+        &.splide__arrow--prev {
+            left: 0;
+        }
+
+        &.splide__arrow--next {
             right: 0;
-            transition: right 300ms linear;
         }
     }
 }

@@ -1,20 +1,21 @@
 import { blockEditor, components, i18n } from 'wp';
 import {
-    Filter3,
     Loop as LoopIcon,
     PlayCircleOutline as AutoplayIcon,
     ViewColumn as CountIcon,
 } from '@gebruederheitz/wp-editor-components/dist/icons';
-import { InputWithIcon } from '@gebruederheitz/wp-editor-components';
+import {
+    InputWithIcon,
+    ModalOpener,
+} from '@gebruederheitz/wp-editor-components';
 
-import { ResponsiveControls } from './components/ReponsiveControls';
-import { AdvancedControls } from './components/AdvancedControls';
 import { SlideManagementControls } from './components/SlideManagementControls';
 import { SlideCountToolbar } from './components/SlideCountToolbar';
 import { PresetControls } from './components/PresetControls';
 
 const {
     Panel,
+    PanelRow,
     RangeControl,
     ToggleControl,
     Toolbar: WPToolbar,
@@ -30,7 +31,6 @@ export const Controls = (props) => {
             currentlyEditedChildIndex,
             infiniteLoop,
             slidesShown,
-            slidesToScroll,
             useAutoplay,
         },
         setAttributes,
@@ -59,41 +59,38 @@ export const Controls = (props) => {
                         isShiftStepEnabled={false}
                     />
                     <InputWithIcon
-                        icon={Filter3}
-                        label={__(
-                            'Slides scrolled (not supported by all slider modules)',
-                            'ghwp'
-                        )}
-                        setAttributes={setAttributes}
-                        attributeName={'slidesToScroll'}
-                        component={RangeControl}
-                        value={slidesToScroll}
-                        withInputField={true}
-                        min={1}
-                        max={slidesShown}
-                        isShiftStepEnabled={false}
-                    />
-                    <InputWithIcon
                         icon={LoopIcon}
                         label={__('Infinite loop', 'ghwp')}
-                        setAttributes={setAttributes}
-                        attributeName={'infiniteLoop'}
+                        onChange={(infiniteLoop) => {
+                            setAttributes({
+                                infiniteLoop,
+                                infiniteLoopMedium: infiniteLoop,
+                                infiniteLoopSmall: infiniteLoop,
+                            });
+                        }}
                         component={ToggleControl}
                         checked={infiniteLoop}
                     />
                     <InputWithIcon
                         icon={AutoplayIcon}
                         label={__('Autoplay', 'ghwp')}
-                        setAttributes={setAttributes}
-                        attributeName={'useAutoplay'}
-                        component={ToggleControl}
+                        onChange={(useAutoplay) => {
+                            setAttributes({
+                                useAutoplay,
+                                useAutoplayMedium: useAutoplay,
+                                useAutoplaySmall: useAutoplay,
+                            });
+                        }}
+                        compone
+                        nt={ToggleControl}
                         checked={useAutoplay}
                     />
+                    <PanelRow>
+                        <ModalOpener {...props}>Advanced Settings</ModalOpener>
+                    </PanelRow>
                     <PresetControls {...props} />
                     <Panel>
-                        <AdvancedControls {...props} />
                         <SlideManagementControls {...props} />
-                        <ResponsiveControls {...props} />
                     </Panel>
                 </div>
             </InspectorControls>
@@ -122,6 +119,7 @@ export const Controls = (props) => {
                                 setAttributes({ infiniteLoop });
                             }}
                         />
+                        <ModalOpener toolbar icon="admin-generic" {...props} />
                     </WPToolbar>
                 </BlockControls>
             )}

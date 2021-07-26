@@ -58,6 +58,34 @@ register({
 
 ```
 
+
+#### Custom Presets
+
+Use the `PresetManager` singleton to override existing presets or add new ones:
+
+```js
+import { presetManager } from '@gebruederheitz/wp-block-slideshow';
+
+// Create a new preset with the id "mypreset" that will effectively
+// deviate from the defaults by the name and autoplay setting: 
+presetManager.addPreset('mypreset', {
+    prettyName: 'My Preset',
+    autoplay: true,    
+});
+
+// Completely override the existing default preset:
+presetManager.addPreset('defaults', {...});
+
+// Merge your values into the existing default preset (i.e. override certain values):
+presetManager.putPreset('defaults', {...});
+
+// The same, but with an object of presets:
+presetManager.putPresets({
+    defaults: {...},
+    mypreset: {...},
+})
+```
+
 ### On the frontend
 
 ```js
@@ -102,8 +130,10 @@ You may use and extend the default styles provided by this package in your
 ```sass
 // Your frontend SASS file
 
-// Override the default variable values if you need to
+// Import the Glide.js default styles as a basis
+@use 'node_modules/@glidejs/glide/src/assets/sass/glide.core';
 
+// Override the default variable values if you need to
 // Import the stylesheet
 @use 'node_modules/@gebruederheitz/wp-block-slideshow/scss/slideshow' with (
     /* General Slideshow style variables */
