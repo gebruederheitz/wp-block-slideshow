@@ -38,7 +38,7 @@
   "dependencies": {
     "@babel/runtime": "^7.14.6",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
-    "@gebruederheitz/wp-editor-components": "^1.0.5",
+    "@gebruederheitz/wp-editor-components": "^1.0.6",
     "@gebruederheitz/wp-frontend-utils": "^1.0.0",
     "@glidejs/glide": "^3.4.1",
     "@splidejs/splide": "^2.4.21",
