@@ -11,6 +11,7 @@ import {
     InitialSlideControl,
     LibraryControl,
     SecondarySliderPanel,
+    SlidesShownControl,
     SlidesToScrollControl,
 } from './modal';
 import { libraries } from '../../frontend';
@@ -29,6 +30,7 @@ export const AdvancedOptionsModal = (props) => {
 
             <LibraryControl {...props} />
             <BreakpointsControl {...props} />
+            <SlidesShownControl {...props} />
             <SlidesToScrollControl {...props} />
             <InitialSlideControl {...props} />
             <CenterModeControl {...props} />

@@ -21781,7 +21781,7 @@ function truncate(string, options) {
   return result + omission;
 }
 
-var RangeControl$9 = components.RangeControl,
+var RangeControl$a = components.RangeControl,
     TextControl$1 = components.TextControl,
     ToggleControl$5 = components.ToggleControl;
 
@@ -21861,10 +21861,10 @@ var InputWithIcon$1 = function InputWithIcon(props) {
       break;
 
     case 'range':
-      Component = RangeControl$9;
+      Component = RangeControl$a;
     // eslint-disable-next-line no-fallthrough
 
-    case RangeControl$9:
+    case RangeControl$a:
       componentProps = pick(props, [// 'label',
       'help', 'beforeIcon', 'afterIcon', 'allowReset', 'disabled', 'initialPosition', 'isShiftStepEnabled', 'marks', // 'onChange',
       'min', 'max', 'railColor', 'renderTooltipContent', 'resetFallbackValue', 'showTooltip', 'step', 'trackColor', 'value', 'withInputField', 'icon', 'separatorType', 'type', 'shiftStep']);
@@ -24621,7 +24621,7 @@ var PresetControls = function PresetControls(props) {
 
 var Panel$3 = components.Panel,
     PanelRow$2 = components.PanelRow,
-    RangeControl$8 = components.RangeControl,
+    RangeControl$9 = components.RangeControl,
     ToggleControl$4 = components.ToggleControl,
     WPToolbar = components.Toolbar,
     ToolbarButton = components.ToolbarButton;
@@ -24645,7 +24645,7 @@ var Controls = function Controls(props) {
     label: __$6('Slides shown', 'ghwp'),
     setAttributes: setAttributes,
     attributeName: 'slidesShown',
-    component: RangeControl$8,
+    component: RangeControl$9,
     value: slidesShown,
     withInputField: true,
     min: 1,
@@ -25226,7 +25226,7 @@ var SmallVariation = function SmallVariation(props) {
 var Panel$2 = components.Panel,
     PanelBody$1 = components.PanelBody,
     PanelRow$1 = components.PanelRow,
-    RangeControl$7 = components.RangeControl,
+    RangeControl$8 = components.RangeControl,
     ToggleControl$3 = components.ToggleControl;
 var __$4 = i18n.__;
 var AutoplayPanel = function AutoplayPanel(props) {
@@ -25268,7 +25268,7 @@ var AutoplayPanel = function AutoplayPanel(props) {
   })))), (useAutoplay || useAutoplayMedium || useAutoplaySmall) && /*#__PURE__*/React.createElement(PanelRow$1, null, /*#__PURE__*/React.createElement(ModalInputWithIcon, {
     icon: Alarm,
     label: 'Autoplay speed (delay in ms)'
-  }, /*#__PURE__*/React.createElement(RangeControl$7, {
+  }, /*#__PURE__*/React.createElement(RangeControl$8, {
     value: autoplaySpeed,
     withInputField: true,
     min: 500,
@@ -25393,7 +25393,7 @@ var DotsControl = function DotsControl(props) {
   })));
 };
 
-var RangeControl$6 = components.RangeControl;
+var RangeControl$7 = components.RangeControl;
 var EdgePaddingControl = function EdgePaddingControl(props) {
   var _props$attributes = props.attributes,
       edgePadding = _props$attributes.edgePadding,
@@ -25403,7 +25403,7 @@ var EdgePaddingControl = function EdgePaddingControl(props) {
   return /*#__PURE__*/React.createElement(ModalInputWithIcon, {
     icon: SwapHoriz,
     label: "Edge Padding"
-  }, /*#__PURE__*/React.createElement(InputWrap, null, /*#__PURE__*/React.createElement(RangeControl$6, {
+  }, /*#__PURE__*/React.createElement(InputWrap, null, /*#__PURE__*/React.createElement(RangeControl$7, {
     value: edgePadding,
     withInputField: true,
     min: 0,
@@ -25414,7 +25414,7 @@ var EdgePaddingControl = function EdgePaddingControl(props) {
         edgePadding: edgePadding
       });
     }
-  })), /*#__PURE__*/React.createElement(MediumVariation, props, /*#__PURE__*/React.createElement(RangeControl$6, {
+  })), /*#__PURE__*/React.createElement(MediumVariation, props, /*#__PURE__*/React.createElement(RangeControl$7, {
     value: edgePaddingMedium,
     withInputField: true,
     min: 0,
@@ -25425,7 +25425,7 @@ var EdgePaddingControl = function EdgePaddingControl(props) {
         edgePaddingMedium: edgePaddingMedium
       });
     }
-  })), /*#__PURE__*/React.createElement(SmallVariation, props, /*#__PURE__*/React.createElement(RangeControl$6, {
+  })), /*#__PURE__*/React.createElement(SmallVariation, props, /*#__PURE__*/React.createElement(RangeControl$7, {
     value: edgePaddingSmall,
     withInputField: true,
     min: 0,
@@ -25475,7 +25475,7 @@ var InfiniteLoopControl = function InfiniteLoopControl(props) {
 
 var ButtonGroup$2 = components.ButtonGroup,
     Button$2 = components.Button,
-    RangeControl$5 = components.RangeControl;
+    RangeControl$6 = components.RangeControl;
 var InitialSlideControl = function InitialSlideControl(props) {
   var initialSlide = props.attributes.initialSlide,
       children = props.children,
@@ -25485,7 +25485,7 @@ var InitialSlideControl = function InitialSlideControl(props) {
   return /*#__PURE__*/React.createElement(ModalInputWithIcon, {
     label: "Initial slide",
     icon: Alarm
-  }, rangeSlider ? /*#__PURE__*/React.createElement(RangeControl$5, {
+  }, rangeSlider ? /*#__PURE__*/React.createElement(RangeControl$6, {
     value: initialSlide + 1,
     onChange: function onChange(newVal) {
       setAttributes({
@@ -25541,7 +25541,7 @@ var LibraryControl = function LibraryControl(props) {
   }, __$3('Splide', 'ghwp'))));
 };
 
-var RangeControl$4 = components.RangeControl;
+var RangeControl$5 = components.RangeControl;
 var SecondaryGapControl = function SecondaryGapControl(props) {
   var _props$attributes = props.attributes,
       secondaryGap = _props$attributes.secondaryGap,
@@ -25551,7 +25551,7 @@ var SecondaryGapControl = function SecondaryGapControl(props) {
   return /*#__PURE__*/React.createElement(ModalInputWithIcon, {
     icon: SwapHoriz,
     label: "Thumbnail gap"
-  }, /*#__PURE__*/React.createElement(InputWrap, null, /*#__PURE__*/React.createElement(RangeControl$4, {
+  }, /*#__PURE__*/React.createElement(InputWrap, null, /*#__PURE__*/React.createElement(RangeControl$5, {
     value: secondaryGap,
     withInputField: true,
     min: 0,
@@ -25562,7 +25562,7 @@ var SecondaryGapControl = function SecondaryGapControl(props) {
         secondaryGap: secondaryGap
       });
     }
-  })), /*#__PURE__*/React.createElement(MediumVariation, props, /*#__PURE__*/React.createElement(RangeControl$4, {
+  })), /*#__PURE__*/React.createElement(MediumVariation, props, /*#__PURE__*/React.createElement(RangeControl$5, {
     value: secondaryGapMedium,
     withInputField: true,
     min: 0,
@@ -25573,7 +25573,7 @@ var SecondaryGapControl = function SecondaryGapControl(props) {
         secondaryGapMedium: secondaryGapMedium
       });
     }
-  })), /*#__PURE__*/React.createElement(SmallVariation, props, /*#__PURE__*/React.createElement(RangeControl$4, {
+  })), /*#__PURE__*/React.createElement(SmallVariation, props, /*#__PURE__*/React.createElement(RangeControl$5, {
     value: secondaryGapSmall,
     withInputField: true,
     min: 0,
@@ -25587,7 +25587,7 @@ var SecondaryGapControl = function SecondaryGapControl(props) {
   })));
 };
 
-var RangeControl$3 = components.RangeControl;
+var RangeControl$4 = components.RangeControl;
 var SecondaryHeightControl = function SecondaryHeightControl(props) {
   var _props$attributes = props.attributes,
       secondaryHeight = _props$attributes.secondaryHeight,
@@ -25597,7 +25597,7 @@ var SecondaryHeightControl = function SecondaryHeightControl(props) {
   return /*#__PURE__*/React.createElement(ModalInputWithIcon, {
     icon: Height,
     label: "Thumbnail height"
-  }, /*#__PURE__*/React.createElement(InputWrap, null, /*#__PURE__*/React.createElement(RangeControl$3, {
+  }, /*#__PURE__*/React.createElement(InputWrap, null, /*#__PURE__*/React.createElement(RangeControl$4, {
     value: secondaryHeight,
     withInputField: true,
     min: 20,
@@ -25608,7 +25608,7 @@ var SecondaryHeightControl = function SecondaryHeightControl(props) {
         secondaryHeight: secondaryHeight
       });
     }
-  })), /*#__PURE__*/React.createElement(MediumVariation, props, /*#__PURE__*/React.createElement(RangeControl$3, {
+  })), /*#__PURE__*/React.createElement(MediumVariation, props, /*#__PURE__*/React.createElement(RangeControl$4, {
     value: secondaryHeightMedium,
     withInputField: true,
     min: 20,
@@ -25619,7 +25619,7 @@ var SecondaryHeightControl = function SecondaryHeightControl(props) {
         secondaryHeightMedium: secondaryHeightMedium
       });
     }
-  })), /*#__PURE__*/React.createElement(SmallVariation, props, /*#__PURE__*/React.createElement(RangeControl$3, {
+  })), /*#__PURE__*/React.createElement(SmallVariation, props, /*#__PURE__*/React.createElement(RangeControl$4, {
     value: secondaryHeightSmall,
     withInputField: true,
     min: 20,
@@ -25633,7 +25633,7 @@ var SecondaryHeightControl = function SecondaryHeightControl(props) {
   })));
 };
 
-var RangeControl$2 = components.RangeControl;
+var RangeControl$3 = components.RangeControl;
 var SecondarySlideCountControl = function SecondarySlideCountControl(props) {
   var _props$attributes = props.attributes,
       secondarySlidesShown = _props$attributes.secondarySlidesShown,
@@ -25643,7 +25643,7 @@ var SecondarySlideCountControl = function SecondarySlideCountControl(props) {
   return /*#__PURE__*/React.createElement(ModalInputWithIcon, {
     icon: ViewColumn,
     label: "Thumbnails shown"
-  }, /*#__PURE__*/React.createElement(InputWrap, null, /*#__PURE__*/React.createElement(RangeControl$2, {
+  }, /*#__PURE__*/React.createElement(InputWrap, null, /*#__PURE__*/React.createElement(RangeControl$3, {
     value: secondarySlidesShown,
     withInputField: true,
     min: 1,
@@ -25654,7 +25654,7 @@ var SecondarySlideCountControl = function SecondarySlideCountControl(props) {
         secondarySlidesShown: secondarySlidesShown
       });
     }
-  })), /*#__PURE__*/React.createElement(MediumVariation, props, /*#__PURE__*/React.createElement(RangeControl$2, {
+  })), /*#__PURE__*/React.createElement(MediumVariation, props, /*#__PURE__*/React.createElement(RangeControl$3, {
     value: secondarySlidesShownMedium,
     withInputField: true,
     min: 1,
@@ -25665,7 +25665,7 @@ var SecondarySlideCountControl = function SecondarySlideCountControl(props) {
         secondarySlidesShownMedium: secondarySlidesShownMedium
       });
     }
-  })), /*#__PURE__*/React.createElement(SmallVariation, props, /*#__PURE__*/React.createElement(RangeControl$2, {
+  })), /*#__PURE__*/React.createElement(SmallVariation, props, /*#__PURE__*/React.createElement(RangeControl$3, {
     value: secondarySlidesShownSmall,
     withInputField: true,
     min: 1,
@@ -25679,7 +25679,7 @@ var SecondarySlideCountControl = function SecondarySlideCountControl(props) {
   })));
 };
 
-var RangeControl$1 = components.RangeControl;
+var RangeControl$2 = components.RangeControl;
 var SecondaryWidthControl = function SecondaryWidthControl(props) {
   var _props$attributes = props.attributes,
       secondaryWidth = _props$attributes.secondaryWidth,
@@ -25689,7 +25689,7 @@ var SecondaryWidthControl = function SecondaryWidthControl(props) {
   return /*#__PURE__*/React.createElement(ModalInputWithIcon, {
     icon: SpaceBar,
     label: "Thumbnail width"
-  }, /*#__PURE__*/React.createElement(InputWrap, null, /*#__PURE__*/React.createElement(RangeControl$1, {
+  }, /*#__PURE__*/React.createElement(InputWrap, null, /*#__PURE__*/React.createElement(RangeControl$2, {
     value: secondaryWidth,
     withInputField: true,
     min: 20,
@@ -25700,7 +25700,7 @@ var SecondaryWidthControl = function SecondaryWidthControl(props) {
         secondaryWidth: secondaryWidth
       });
     }
-  })), /*#__PURE__*/React.createElement(MediumVariation, props, /*#__PURE__*/React.createElement(RangeControl$1, {
+  })), /*#__PURE__*/React.createElement(MediumVariation, props, /*#__PURE__*/React.createElement(RangeControl$2, {
     value: secondaryWidthMedium,
     withInputField: true,
     min: 20,
@@ -25711,7 +25711,7 @@ var SecondaryWidthControl = function SecondaryWidthControl(props) {
         secondaryWidthMedium: secondaryWidthMedium
       });
     }
-  })), /*#__PURE__*/React.createElement(SmallVariation, props, /*#__PURE__*/React.createElement(RangeControl$1, {
+  })), /*#__PURE__*/React.createElement(SmallVariation, props, /*#__PURE__*/React.createElement(RangeControl$2, {
     value: secondaryWidthSmall,
     withInputField: true,
     min: 20,
@@ -25760,6 +25760,53 @@ var SecondarySliderPanel = function SecondarySliderPanel(props) {
       });
     }
   }, __$2('Thumbnail style navigation', 'ghwp'))))), linkingType !== linkTypes.NONE && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(SecondarySlideCountControl, props), /*#__PURE__*/React.createElement(SecondaryGapControl, props), /*#__PURE__*/React.createElement(SecondaryHeightControl, props), /*#__PURE__*/React.createElement(SecondaryWidthControl, props)))));
+};
+
+var RangeControl$1 = components.RangeControl;
+var SlidesShownControl = function SlidesShownControl(props) {
+  var _props$attributes = props.attributes,
+      sliderLibrary = _props$attributes.sliderLibrary,
+      slidesShown = _props$attributes.slidesShown,
+      slidesShownMedium = _props$attributes.slidesShownMedium,
+      slidesShownSmall = _props$attributes.slidesShownSmall,
+      setAttributes = props.setAttributes;
+  return /*#__PURE__*/React.createElement(React.Fragment, null, sliderLibrary === libraries.SPLIDE && /*#__PURE__*/React.createElement(ModalInputWithIcon, {
+    icon: ViewColumn,
+    label: "Slides shown"
+  }, /*#__PURE__*/React.createElement(InputWrap, null, /*#__PURE__*/React.createElement(RangeControl$1, {
+    value: slidesShown,
+    withInputField: true,
+    min: 1,
+    max: 10,
+    isShiftStepEnabled: true,
+    onChange: function onChange(slidesShown) {
+      setAttributes({
+        slidesShown: slidesShown
+      });
+    }
+  })), /*#__PURE__*/React.createElement(MediumVariation, props, /*#__PURE__*/React.createElement(RangeControl$1, {
+    value: slidesShownMedium,
+    withInputField: true,
+    min: 1,
+    max: 10,
+    isShiftStepEnabled: false,
+    onChange: function onChange(slidesShownMedium) {
+      setAttributes({
+        slidesShownMedium: slidesShownMedium
+      });
+    }
+  })), /*#__PURE__*/React.createElement(SmallVariation, props, /*#__PURE__*/React.createElement(RangeControl$1, {
+    value: slidesShownSmall,
+    withInputField: true,
+    min: 1,
+    max: 10,
+    isShiftStepEnabled: false,
+    onChange: function onChange(slidesShownSmall) {
+      setAttributes({
+        slidesShownSmall: slidesShownSmall
+      });
+    }
+  }))));
 };
 
 var RangeControl = components.RangeControl;
@@ -25813,7 +25860,7 @@ var SlidesToScrollControl = function SlidesToScrollControl(props) {
 var Panel = components.Panel;
 var AdvancedOptionsModal = function AdvancedOptionsModal(props) {
   var sliderLibrary = props.attributes.sliderLibrary;
-  return /*#__PURE__*/React.createElement(ControlledModal, props, /*#__PURE__*/React.createElement("h2", null, "Slideshow: Advanced Settings"), /*#__PURE__*/React.createElement(LibraryControl, props), /*#__PURE__*/React.createElement(BreakpointsControl, props), /*#__PURE__*/React.createElement(SlidesToScrollControl, props), /*#__PURE__*/React.createElement(InitialSlideControl, props), /*#__PURE__*/React.createElement(CenterModeControl, props), /*#__PURE__*/React.createElement(EdgePaddingControl, props), /*#__PURE__*/React.createElement(DotsControl, props), /*#__PURE__*/React.createElement(InfiniteLoopControl, props), /*#__PURE__*/React.createElement(AutoplayPanel, props), sliderLibrary === libraries.SPLIDE && /*#__PURE__*/React.createElement(SecondarySliderPanel, props), /*#__PURE__*/React.createElement(Panel, null, /*#__PURE__*/React.createElement(SlideManagementControls, props)));
+  return /*#__PURE__*/React.createElement(ControlledModal, props, /*#__PURE__*/React.createElement("h2", null, "Slideshow: Advanced Settings"), /*#__PURE__*/React.createElement(LibraryControl, props), /*#__PURE__*/React.createElement(BreakpointsControl, props), /*#__PURE__*/React.createElement(SlidesShownControl, props), /*#__PURE__*/React.createElement(SlidesToScrollControl, props), /*#__PURE__*/React.createElement(InitialSlideControl, props), /*#__PURE__*/React.createElement(CenterModeControl, props), /*#__PURE__*/React.createElement(EdgePaddingControl, props), /*#__PURE__*/React.createElement(DotsControl, props), /*#__PURE__*/React.createElement(InfiniteLoopControl, props), /*#__PURE__*/React.createElement(AutoplayPanel, props), sliderLibrary === libraries.SPLIDE && /*#__PURE__*/React.createElement(SecondarySliderPanel, props), /*#__PURE__*/React.createElement(Panel, null, /*#__PURE__*/React.createElement(SlideManagementControls, props)));
 };
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
