@@ -12,18 +12,12 @@ import { getGlideCustomControls } from './glide-custom-controls';
 import { GlideOptionMapper } from './glide-option-mapper';
 
 export class GlideSlideshow extends Slideshow {
-    constructor(
-        sliderRoot,
-        debugEnabled = false,
-        resizeListener,
-        glide = Glide
-    ) {
+    constructor(sliderRoot, debugEnabled = false, resizeListener) {
         super(sliderRoot, debugEnabled, resizeListener, 'GlideSlideshow');
-        this.glide = glide;
     }
 
     initLibraryInstance() {
-        return new this.glide(this.sliderRoot, this.sliderOptions);
+        return new Glide(this.sliderRoot, this.sliderOptions);
     }
 
     getOptionMapper() {
