@@ -48,7 +48,8 @@ export const options = {
         attribute: 'ghwpSliderSpeed',
         type: 'number',
     },
-    autoWidth: { // @TODO add splide only
+    autoWidth: {
+        // @TODO add splide only
         default: false,
         attribute: 'ghwpSliderAutowidth',
         type: 'boolean',

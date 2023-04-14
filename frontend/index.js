@@ -1,26 +1,13 @@
-import { SlideshowFactory } from './slideshow-factory';
-import { GlideSlideshow } from './glide';
-import { SplideSlideshow } from './splide';
-import { prevIcon, nextIcon } from './icons';
-import { presetManager } from './presets/PresetManager';
-import {
+export { SlideshowFactory } from './slideshow-factory';
+export { GlideSlideshow } from './glide';
+export { SplideSlideshow } from './splide';
+export { prevIcon, nextIcon } from './icons';
+export { presetManager } from './presets/PresetManager';
+export {
     options,
     readSlideshowOptions,
     flattenToValues,
     linkTypes,
     libraries,
 } from './slideshow-options';
-
-export {
-    SlideshowFactory,
-    GlideSlideshow,
-    SplideSlideshow,
-    options,
-    presetManager,
-    readSlideshowOptions,
-    flattenToValues,
-    linkTypes,
-    libraries,
-    prevIcon,
-    nextIcon,
-};
+export { ResizeListener } from './resize-listener';
