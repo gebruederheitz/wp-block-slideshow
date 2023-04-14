@@ -8,6 +8,7 @@ export class SlideshowFactory extends Debuggable {
         selector = '.ghwp-slideshow',
         debugEnabled = false,
         resizeListener = null,
+        customSliderLib = null,
     } = {}) {
         super('SlideshowFactory');
 
@@ -15,6 +16,7 @@ export class SlideshowFactory extends Debuggable {
         this.resizeListener = resizeListener;
         this.debugEnabled = debugEnabled;
         this.selector = selector;
+        this.customSliderLib = customSliderLib;
 
         this.slideshows = [];
 
@@ -33,7 +35,8 @@ export class SlideshowFactory extends Debuggable {
                 const slideshow = new SlideshowClass(
                     slider,
                     this.debugEnabled,
-                    this.resizeListener
+                    this.resizeListener,
+                    this.customSliderLib
                 );
                 slideshow.mount();
                 this.slideshows.push(slideshow);

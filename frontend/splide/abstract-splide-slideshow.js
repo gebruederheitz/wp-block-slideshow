@@ -4,12 +4,18 @@ import { $$, createDomElement } from '@gebruederheitz/wp-frontend-utils';
 import { Slideshow } from '../abstract/slideshow';
 
 export class AbstractSplideSlideshow extends Slideshow {
-    constructor(sliderRoot, debugEnabled = false, resizeListener) {
+    constructor(
+        sliderRoot,
+        debugEnabled = false,
+        resizeListener,
+        splide = Splide
+    ) {
         super(sliderRoot, debugEnabled, resizeListener, 'SplideSlideshow');
+        this.splide = splide;
     }
 
     initLibraryInstance() {
-        return new Splide(this.sliderRoot, this.sliderOptions);
+        return new this.splide(this.sliderRoot, this.sliderOptions);
     }
 
     onResize() {
