@@ -5,6 +5,7 @@ import { edit as defaultEdit } from './edit';
 import { save as defaultSave } from './save';
 import { slideshowChildren, DEFAULT_ALLOWED_CHILDREN } from './utils/children';
 import { ViewCarousel } from '@gebruederheitz/wp-editor-components/dist/icons';
+import { presetManager } from '../frontend';
 
 const { registerBlockType } = blocks;
 const { __ } = i18n;
@@ -38,4 +39,5 @@ export {
     defaultAttributes as attributes,
     slideshowChildren,
     DEFAULT_ALLOWED_CHILDREN,
+    presetManager,
 };
