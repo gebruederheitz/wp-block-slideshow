@@ -44,7 +44,7 @@ export class SplideSlideshow extends AbstractSplideSlideshow {
     }
 
     isLinked() {
-        return this.sliderRoot.nextElementSibling.matches(
+        return this.sliderRoot.nextElementSibling?.matches(
             '.ghwp-slideshow--secondary'
         );
     }
