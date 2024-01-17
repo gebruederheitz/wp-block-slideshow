@@ -13,7 +13,7 @@ export class AbstractSplideSlideshow extends Slideshow {
     }
 
     onResize() {
-        // this.libraryInstance.refresh();
+        this.libraryInstance.refresh();
     }
 
     applyDomTransformations() {

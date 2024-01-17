@@ -24,10 +24,6 @@ export class GlideSlideshow extends Slideshow {
         return GlideOptionMapper;
     }
 
-    onResize() {
-        this.libraryInstance.update();
-    }
-
     onStageSlider() {
         this.libraryInstance.on('build.after', this.onStageAfterBuild);
     }

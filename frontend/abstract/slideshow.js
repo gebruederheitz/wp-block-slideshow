@@ -38,6 +38,7 @@ export class Slideshow extends Debuggable {
         // this.mount();
 
         if (resizeListener) {
+            this.debug.log('Subscibing to resize listener');
             resizeListener.subscribe('resize', this.onResize);
         }
     }
@@ -51,7 +52,7 @@ export class Slideshow extends Debuggable {
     }
 
     onResize() {
-        this.glide.update();
+        this.libraryInstance.update();
     }
 
     onStageSlider() {}
