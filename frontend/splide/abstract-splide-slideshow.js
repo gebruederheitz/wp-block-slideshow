@@ -4,8 +4,19 @@ import { $$, createDomElement } from '@gebruederheitz/wp-frontend-utils';
 import { Slideshow } from '../abstract/slideshow';
 
 export class AbstractSplideSlideshow extends Slideshow {
-    constructor(sliderRoot, debugEnabled = false, resizeListener) {
-        super(sliderRoot, debugEnabled, resizeListener, 'SplideSlideshow');
+    constructor(
+        sliderRoot,
+        debugEnabled = false,
+        resizeListener,
+        libraryOptionsUpdater
+    ) {
+        super(
+            sliderRoot,
+            debugEnabled,
+            resizeListener,
+            libraryOptionsUpdater,
+            'SplideSlideshow'
+        );
     }
 
     initLibraryInstance() {

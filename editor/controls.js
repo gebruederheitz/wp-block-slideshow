@@ -18,7 +18,7 @@ const {
     PanelRow,
     RangeControl,
     ToggleControl,
-    Toolbar: WPToolbar,
+    ToolbarGroup: WPToolbar,
     ToolbarButton,
 } = components;
 const { BlockControls, InspectorControls } = blockEditor;
@@ -44,6 +44,11 @@ export const Controls = (props) => {
 
     return (
         <>
+            <style>
+                {`.ghwp-editor-input-with-icon .components-base-control {
+                    flex-grow: 1;
+                }`}
+            </style>
             <InspectorControls>
                 <div className="ghwp-inspector-section">
                     <InputWithIcon
@@ -106,16 +111,16 @@ export const Controls = (props) => {
                             icon={AutoplayIcon}
                             label={'Autoplay'}
                             isPressed={useAutoplay}
-                            onClick={(useAutoplay) => {
-                                setAttributes({ useAutoplay });
+                            onClick={() => {
+                                setAttributes({ useAutoplay: !useAutoplay });
                             }}
                         />
                         <ToolbarButton
                             icon={LoopIcon}
                             label={'Infinite Loop'}
                             isPressed={infiniteLoop}
-                            onClick={(infiniteLoop) => {
-                                setAttributes({ infiniteLoop });
+                            onClick={() => {
+                                setAttributes({ infiniteLoop: !infiniteLoop });
                             }}
                         />
                         <ModalOpener toolbar icon="admin-generic" {...props} />

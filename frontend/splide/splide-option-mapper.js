@@ -1,58 +1,57 @@
 import { OptionMapper } from '../abstract/option-mapper';
-import { flattenToValues, readSlideshowOptions } from '../slideshow-options';
+import { readSlideshowOptions } from '../slideshow-options';
 
 export class SplideOptionMapper extends OptionMapper {
     static fromOptions(rawOptions) {
-        return this._mapToSplideConfig(rawOptions);
+        return new SplideOptionMapper(rawOptions);
     }
 
     static fromElement(element) {
         const rawOptions = readSlideshowOptions(element);
-        return this._mapToSplideConfig(rawOptions);
+
+        return new SplideOptionMapper(rawOptions);
     }
 
-    static _mapToSplideConfig(rawOptions) {
-        const values = flattenToValues(rawOptions);
-
+    _map() {
         return {
-            type: values.sliderType,
-            rewind: values.infiniteLoop,
-            speed: values.animationDuration,
-            rewindSpeed: values.animationDuration * 2,
-            perPage: values.slidesShown,
-            perMove: values.slidesToScroll,
-            start: values.initialSlide,
-            focus: values.centerMode ? 'center' : 0,
-            trimSpace: values.trimSpace,
-            gap: values.gap,
-            arrows: values.arrows, // @TODO: check if this works as expected
-            pagination: values.dots,
-            autoplay: values.autoplay,
-            interval: values.autoplaySpeed,
-            pauseOnHover: values.pauseOnHover,
-            drag: values.mouseDrag,
+            type: this.values.sliderType,
+            rewind: this.values.infiniteLoop,
+            speed: this.values.animationDuration,
+            rewindSpeed: this.values.animationDuration * 2,
+            perPage: this.values.slidesShown,
+            perMove: this.values.slidesToScroll,
+            start: this.values.initialSlide,
+            focus: this.values.centerMode ? 'center' : 0,
+            trimSpace: this.values.trimSpace,
+            gap: this.values.gap,
+            arrows: this.values.arrows, // @TODO: check if this works as expected
+            pagination: this.values.dots,
+            autoplay: this.values.autoplay,
+            interval: this.values.autoplaySpeed,
+            pauseOnHover: this.values.pauseOnHover,
+            drag: this.values.mouseDrag,
             isNavigation: false,
-            padding: values.edgePadding,
-            autoWidth: values.autoWidth,
+            padding: this.values.edgePadding,
+            autoWidth: this.values.autoWidth,
             // i18n: {},
             breakpoints: {
-                [values.breakpointSmall]: {
-                    rewind: values.infiniteLoopSmall,
-                    perPage: values.slidesShownSmall,
-                    perMove: values.slidesToScrollSmall,
-                    focus: values.centerModeSmall ? 'center' : 0,
-                    gap: values.gapSmall,
-                    pagination: values.dotsSmall,
-                    padding: values.edgePaddingSmall,
+                [this.values.breakpointSmall]: {
+                    rewind: this.values.infiniteLoopSmall,
+                    perPage: this.values.slidesShownSmall,
+                    perMove: this.values.slidesToScrollSmall,
+                    focus: this.values.centerModeSmall ? 'center' : 0,
+                    gap: this.values.gapSmall,
+                    pagination: this.values.dotsSmall,
+                    padding: this.values.edgePaddingSmall,
                 },
-                [values.breakpointMedium]: {
-                    rewind: values.infiniteLoopMedium,
-                    perPage: values.slidesShownMedium,
-                    perMove: values.slidesToScrollMedium,
-                    focus: values.centerModeMedium ? 'center' : 0,
-                    gap: values.gapMedium,
-                    pagination: values.dotsMedium,
-                    padding: values.edgePaddingMedium,
+                [this.values.breakpointMedium]: {
+                    rewind: this.values.infiniteLoopMedium,
+                    perPage: this.values.slidesShownMedium,
+                    perMove: this.values.slidesToScrollMedium,
+                    focus: this.values.centerModeMedium ? 'center' : 0,
+                    gap: this.values.gapMedium,
+                    pagination: this.values.dotsMedium,
+                    padding: this.values.edgePaddingMedium,
                 },
             },
         };

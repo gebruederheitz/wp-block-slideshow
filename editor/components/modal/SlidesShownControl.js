@@ -22,9 +22,12 @@ export const SlidesShownControl = (props) => {
         setAttributes,
     } = props;
 
+    const step = sliderLibrary === libraries.SWIPER ? 0.25 : 1;
+
     return (
         <>
-            {sliderLibrary === libraries.SPLIDE && (
+            {[libraries.SPLIDE, libraries.SWIPER].indexOf(sliderLibrary) >
+                -1 && (
                 <ModalInputWithIcon icon={CountIcon} label="Slides shown">
                     <InputWrap>
                         <RangeControl
@@ -32,6 +35,7 @@ export const SlidesShownControl = (props) => {
                             withInputField={true}
                             min={1}
                             max={10}
+                            step={step}
                             isShiftStepEnabled={true}
                             onChange={(slidesShown) => {
                                 setAttributes({ slidesShown });
@@ -44,6 +48,7 @@ export const SlidesShownControl = (props) => {
                             withInputField={true}
                             min={1}
                             max={10}
+                            step={step}
                             isShiftStepEnabled={false}
                             onChange={(slidesShownMedium) => {
                                 setAttributes({ slidesShownMedium });
@@ -56,6 +61,7 @@ export const SlidesShownControl = (props) => {
                             withInputField={true}
                             min={1}
                             max={10}
+                            step={step}
                             isShiftStepEnabled={false}
                             onChange={(slidesShownSmall) => {
                                 setAttributes({ slidesShownSmall });

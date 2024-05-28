@@ -42,6 +42,17 @@ export const LibraryControl = (props) => {
                 >
                     {__('Splide', 'ghwp')}
                 </Button>
+                <Button
+                    isPrimary
+                    isPressed={sliderLibrary === libraries.SWIPER}
+                    onClick={() => {
+                        setAttributes({
+                            sliderLibrary: libraries.SWIPER,
+                        });
+                    }}
+                >
+                    {__('Swiper', 'ghwp')}
+                </Button>
             </ButtonGroup>
         </ModalInputWithIcon>
     );

@@ -1,6 +1,7 @@
 export const libraries = {
     GLIDE: 'glide',
     SPLIDE: 'splide',
+    SWIPER: 'swiper',
 };
 
 export const linkTypes = {
@@ -14,6 +15,9 @@ export const types = {
     SPLIDE_SLIDER: 'slide',
     SPLIDE_CAROUSEL: 'loop',
     // SPLIDE_FADE: 'fade',
+    SWIPER_SLIDER: 'slider',
+    SWIPER_CAROUSEL: 'loop',
+    SWIPER_COVERFLOW: 'coverflow',
     DEFAULT: '',
 };
 
@@ -334,7 +338,8 @@ export function flattenToValues(optionsObject) {
 
 function parseStringToNumber(string, defaultValue) {
     if (defaultValue === '') defaultValue = 0;
-    let parsed = parseInt(string, 10);
+    // let parsed = parseInt(string, 10);
+    let parsed = parseFloat(string);
     return typeof parsed === 'undefined' ||
         (parsed.toString && parsed.toString() === 'NaN')
         ? defaultValue

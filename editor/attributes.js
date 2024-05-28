@@ -13,6 +13,10 @@ export const attributes = {
     type: {
         type: 'string',
     },
+    imageShowCaptions: {
+        type: 'boolean',
+        default: false,
+    },
     /* "Display" attributes */
     slidesShown: {
         type: 'number',
@@ -125,6 +129,18 @@ export const attributes = {
     sliderType: {
         type: 'string',
         default: options.sliderType.default,
+    },
+    gap: {
+        type: 'number',
+        default: options.gap.default,
+    },
+    gapMedium: {
+        type: 'number',
+        default: options.gapMedium.default,
+    },
+    gapSmall: {
+        type: 'number',
+        default: options.gapSmall.default,
     },
     secondaryGap: {
         type: 'string',

@@ -1,5 +1,5 @@
 import { SplideOptionMapper } from './splide-option-mapper';
-import { flattenToValues, readSlideshowOptions } from '../slideshow-options';
+import { readSlideshowOptions } from '../slideshow-options';
 
 /**
  * The navigation "thumbnail" slider requires a more rigorous configuration.
@@ -7,32 +7,35 @@ import { flattenToValues, readSlideshowOptions } from '../slideshow-options';
 export class SplideNavigationOptionMapper extends SplideOptionMapper {
     static fromElement(element) {
         const ownOptions = readSlideshowOptions(element);
-        const values = flattenToValues(ownOptions);
 
+        return new SplideNavigationOptionMapper(ownOptions);
+    }
+
+    _map() {
         return {
             isNavigation: true,
-            slidesShown: values.secondarySlidesShown,
+            slidesShown: this.values.secondarySlidesShown,
             slidesToScroll: 1,
             cover: true,
             focus: 'center',
             pagination: false,
             arrows: true,
-            fixedWidth: values.secondaryWidth,
-            height: values.secondaryHeight,
-            gap: values.secondaryGap,
+            fixedWidth: this.values.secondaryWidth,
+            height: this.values.secondaryHeight,
+            gap: this.values.secondaryGap,
             rewind: true,
             breakpoints: {
-                [values.breakpointSmall]: {
-                    gap: values.secondaryGapSmall,
-                    fixedWidth: values.secondaryWidthSmall,
-                    height: values.secondaryHeightSmall,
-                    slidesShown: values.secondarySlidesShownSmall,
+                [this.values.breakpointSmall]: {
+                    gap: this.values.secondaryGapSmall,
+                    fixedWidth: this.values.secondaryWidthSmall,
+                    height: this.values.secondaryHeightSmall,
+                    slidesShown: this.values.secondarySlidesShownSmall,
                 },
-                [values.breakpointMedium]: {
-                    gap: values.secondaryGapMedium,
-                    fixedWidth: values.secondaryWidthMedium,
-                    height: values.secondaryHeightMedium,
-                    slidesShown: values.secondarySlidesShownMedium,
+                [this.values.breakpointMedium]: {
+                    gap: this.values.secondaryGapMedium,
+                    fixedWidth: this.values.secondaryWidthMedium,
+                    height: this.values.secondaryHeightMedium,
+                    slidesShown: this.values.secondarySlidesShownMedium,
                 },
             },
         };

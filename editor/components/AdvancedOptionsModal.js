@@ -7,10 +7,13 @@ import {
     CenterModeControl,
     DotsControl,
     EdgePaddingControl,
+    GapControl,
+    ImageCaptionControl,
     InfiniteLoopControl,
     InitialSlideControl,
     LibraryControl,
     SecondarySliderPanel,
+    SliderTypeControl,
     SlidesShownControl,
     SlidesToScrollControl,
 } from './modal';
@@ -29,6 +32,7 @@ export const AdvancedOptionsModal = (props) => {
             <h2>Slideshow: Advanced Settings</h2>
 
             <LibraryControl {...props} />
+            <SliderTypeControl {...props} />
             <BreakpointsControl {...props} />
             <SlidesShownControl {...props} />
             <SlidesToScrollControl {...props} />
@@ -36,7 +40,9 @@ export const AdvancedOptionsModal = (props) => {
             <CenterModeControl {...props} />
             <EdgePaddingControl {...props} />
             <DotsControl {...props} />
+            <GapControl {...props} />
             <InfiniteLoopControl {...props} />
+            <ImageCaptionControl {...props} />
 
             <AutoplayPanel {...props} />
 

@@ -47,7 +47,7 @@ export const PresetControls = (props) => {
                     <PanelRow key={index}>
                         <Button
                             key={index}
-                            isDefault
+                            variant="secondary"
                             onClick={() => {
                                 applyPreset(setAttributes, preset.id);
                             }}

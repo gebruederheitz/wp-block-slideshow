@@ -7,6 +7,7 @@ export class Slideshow extends Debuggable {
         sliderRoot,
         debugEnabled = false,
         resizeListener,
+        libraryOptionsUpdater,
         debugNamespace = 'Slideshow'
     ) {
         super(debugNamespace);
@@ -19,9 +20,10 @@ export class Slideshow extends Debuggable {
         };
         this.sliderRoot = sliderRoot;
         this.resizeListener = resizeListener;
-        this.sliderOptions = this.getOptionMapper().fromElement(
-            this.sliderRoot
-        );
+        this.libraryOptionsUpdater = libraryOptionsUpdater;
+        this.sliderOptions = this.getOptionMapper()
+            .fromElement(this.sliderRoot)
+            .map(libraryOptionsUpdater);
 
         this.debug.log({ options: this.sliderOptions });
 
@@ -34,8 +36,6 @@ export class Slideshow extends Debuggable {
             this.debug.log('Stage slider identified');
             this.onStageSlider();
         }
-
-        // this.mount();
 
         if (resizeListener) {
             this.debug.log('Subscibing to resize listener');
@@ -70,5 +70,13 @@ export class Slideshow extends Debuggable {
 
     getLibraryInstance() {
         return this.libraryInstance;
+    }
+
+    runLibraryOptionsUpdater(rawValues, parsedOptions) {
+        if (this.libraryOptionsUpdater !== null) {
+            return this.libraryOptionsUpdater({ rawValues, parsedOptions });
+        }
+
+        return parsedOptions;
     }
 }

@@ -25,7 +25,8 @@ export const SlidesToScrollControl = (props) => {
 
     return (
         <>
-            {sliderLibrary === libraries.SPLIDE && (
+            {[libraries.SPLIDE, libraries.SWIPER].indexOf(sliderLibrary) >
+                -1 && (
                 <ModalInputWithIcon icon={Filter3} label="Slides scrolled">
                     <InputWrap>
                         <RangeControl
