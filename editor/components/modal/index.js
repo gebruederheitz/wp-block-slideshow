@@ -9,7 +9,7 @@ import { InfiniteLoopControl } from './InfiniteLoopControl';
 import { InitialSlideControl } from './InitialSlideControl';
 import { LibraryControl } from './LibraryControl';
 import { SecondarySliderPanel } from './SecondarySliderPanel';
-import { SliderTypeControl } from 'SliderTypeControl';
+import { SliderTypeControl } from './SliderTypeControl';
 import { SlidesShownControl } from './SlidesShownControl';
 import { SlidesToScrollControl } from './SlidesToScrollControl';
 
