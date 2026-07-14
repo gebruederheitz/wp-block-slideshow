@@ -1,8 +1,9 @@
-import { siblings } from '@glidejs/glide/src/utils/dom';
-import { define } from '@glidejs/glide/src/utils/object';
-import supportsPassive from '@glidejs/glide/src/utils/detect-passive-event';
-
-import EventsBinder from '@glidejs/glide/src/core/event/events-binder';
+import {
+    siblings,
+    define,
+    supportsPassive,
+    EventsBinder,
+} from './glide-internals';
 
 const NAV_SELECTOR = '[data-glide-el="controls[nav]"]';
 const CONTROLS_SELECTOR = '[data-glide-el^="controls"]';
