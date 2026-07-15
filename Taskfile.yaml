@@ -13,6 +13,7 @@ tasks:
 
   test:
     desc: Run linting & testing suite
+    aliases: [lint]
     deps: [ install ]
     cmd: npm run lint
 

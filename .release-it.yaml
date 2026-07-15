@@ -9,8 +9,7 @@ npm:
   publish: true
 hooks:
   before:init:
-    - make test
-    - make build
+    - task test build
   after:bump:
     - npm i
     - git add package-lock.json
