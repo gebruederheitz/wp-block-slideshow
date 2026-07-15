@@ -80,7 +80,7 @@ try {
 
     window.addEventListener('testPassive', null, opts);
     window.removeEventListener('testPassive', null, opts);
-} catch (e) {
+} catch {
     // noop — passive events unsupported
 }
 

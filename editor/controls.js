@@ -40,7 +40,7 @@ export const Controls = (props) => {
 
     const showBlockControls =
         currentlyEditedChildIndex !== null &&
-        typeof currentlyEditedChildIndex !== undefined;
+        currentlyEditedChildIndex !== undefined;
 
     return (
         <>

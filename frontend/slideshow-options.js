@@ -316,7 +316,7 @@ export function parseDataAttribute(
             if (stringValue === '') return false;
             try {
                 return JSON.parse(stringValue);
-            } catch (e) {
+            } catch {
                 return defaultValue;
             }
         case 'number':

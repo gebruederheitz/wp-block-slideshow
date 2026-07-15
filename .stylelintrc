@@ -1,11 +1,13 @@
 {
     "extends": [
         "stylelint-config-standard",
-        "stylelint-config-recommended-scss",
-        "stylelint-config-prettier"
+        "stylelint-config-recommended-scss"
     ],
     "rules": {
-        "indentation": 4,
-        "no-descending-specificity": null
+        "no-descending-specificity": null,
+        "selector-class-pattern": null,
+        "no-invalid-position-at-import-rule": null,
+        "import-notation": null,
+        "nesting-selector-no-missing-scoping-root": null
     }
 }
