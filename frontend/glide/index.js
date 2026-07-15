@@ -3,7 +3,7 @@ import Glide, {
     Breakpoints,
     Controls,
     Swipe,
-} from '@glidejs/glide/dist/glide.modular.esm';
+} from '@glidejs/glide/dist/glide.modular.esm.js';
 import { $, $$, createDomElement } from '@gebruederheitz/wp-frontend-utils';
 
 import { Slideshow } from '../abstract/slideshow';

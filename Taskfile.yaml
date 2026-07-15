@@ -1,0 +1,35 @@
+version: 3
+tasks:
+  dev:
+    desc: Watch sources & continuously rebuild
+    aliases: [watch]
+    deps: [install]
+    cmd: npm run watch
+
+  build:
+    desc: Create production builds
+    deps: [ install ]
+    cmd: npm run build
+
+  test:
+    desc: Run linting & testing suite
+    deps: [ install ]
+    cmd: npm run lint
+
+  release:
+    desc: Create & publish a new release version
+    deps: [ install ]
+    cmd: npm run release
+
+  install-dependencies:
+    aliases:
+      - install
+    desc: Install all NPM dependencies
+    sources:
+      - package.json
+      - package-lock.json
+    generates:
+      - package-lock.json
+      - node_modules/**/*
+    run: when_changed
+    cmd: npm i
